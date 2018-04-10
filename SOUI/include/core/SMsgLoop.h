@@ -71,7 +71,7 @@ namespace SOUI
         
         void OnMsg(LPMSG pMsg);
         
-		void Quit();
+		virtual void Quit();
     protected:
         BOOL m_bRunning;
 		BOOL m_bQuit;

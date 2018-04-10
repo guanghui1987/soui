@@ -25,6 +25,7 @@ SET supportxp=0
 SET vsvarbat=
 
 rem 选择编译版本
+SET "selected=1"
 SET /p selected=1.选择编译版本[1=x86;2=x64;3=x86+x64]:
 if %selected%==1 (
 	SET target=x86
@@ -39,6 +40,7 @@ if %selected%==1 (
 )
 
 rem 选择开发环境
+SET "selected=6"
 SET /p selected=2.选择开发环境[1=2008;2=2010;3=2012;4=2013;5=2015;6=2017;7=2005]:
 
 if %selected%==1 (
@@ -97,6 +99,7 @@ if %selected%==1 (
 )
 :toolsetxp
 rem XP支持
+SET "selected=2"
 SET /p selected=2.是否支持xp[1=支持;2=不支持]:
 		if %selected%==1 (
 		SET cfg=!cfg! TOOLSET_XP 
@@ -104,6 +107,7 @@ SET /p selected=2.是否支持xp[1=支持;2=不支持]:
 :built
 rem @echo !vsvarbat! %target%
 rem 选择编译类型
+SET "selected=2"
 SET /p selected=3.选择SOUI编译模式[1=全模块DLL;2=全模块LIB;3=内核LIB,组件DLL(不能使用LUA脚本模块)]:
 if %selected%==1 (
 	rem do nothing
@@ -116,6 +120,7 @@ if %selected%==1 (
 )
 
 rem 选择字符集
+SET "selected=1"
 SET /p selected=4.选择字符集[1=UNICODE;2=MBCS]:
 
 if %selected%==1 (
@@ -129,6 +134,7 @@ if %selected%==1 (
 )
 
 rem 选择WCHAR支持
+SET "selected=1"
 SET /p selected=5.将WCHAR作为内建类型[1=是;2=否]:
 if %selected%==1 (
 	rem do nothing
@@ -141,6 +147,7 @@ if %selected%==1 (
 )
 
 rem CRT
+SET "selected=2"
 SET /p selected=6.选择CRT链接模式[1=静态链接(MT);2=动态链接(MD)]:
 if %selected%==1 (
 	SET mt=1
@@ -153,6 +160,7 @@ if %selected%==1 (
 )
 
 rem 为release版本生成调试信息
+SET "selected=2"
 SET /p selected=7.是否为release版本生成调试信息[1=生成;2=不生成]:
 if %selected%==1 (
 	SET cfg=!cfg! CAN_DEBUG
