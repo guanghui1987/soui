@@ -2033,6 +2033,8 @@ namespace SOUI
 
 		ReleaseRenderTarget(pRT);
 
+		SetVisible(FALSE, FALSE);
+
 		int nSteps=dwTime/10;
 		if(dwFlags & AW_HIDE)
 		{//hide
@@ -2164,6 +2166,7 @@ namespace SOUI
 					Sleep(10);
 				}
 				DrawAniStep(rcWnd,rcWnd,pRTAfter,pRTBefore,rcWnd.TopLeft());
+				SetVisible(TRUE, FALSE);
 				return TRUE;
 			}else if(dwFlags&AW_CENTER)
 			{
@@ -2179,6 +2182,7 @@ namespace SOUI
 					Sleep(10);
 				}
 				DrawAniStep(rcWnd,rcWnd,pRTAfter,pRTBefore,rcWnd.TopLeft());
+				SetVisible(TRUE, FALSE);
 				return TRUE;
 			}else if(dwFlags&AW_BLEND)
 			{
@@ -2191,6 +2195,7 @@ namespace SOUI
 					byAlpha+=byStepLen;
 				}
 				DrawAniStep(rcWnd,pRTAfter,pRTBefore,255);
+				SetVisible(TRUE, FALSE);
 				return TRUE;
 			}
 			return FALSE;

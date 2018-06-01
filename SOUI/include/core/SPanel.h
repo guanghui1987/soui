@@ -147,6 +147,7 @@ namespace SOUI
         
 		short		 m_zDelta;
         int          m_nScrollSpeed;
+		int			 m_nSpace;
         SOUI_ATTRS_BEGIN()
             ATTR_CUSTOM(L"sbSkin",OnAttrScrollbarSkin)
 			ATTR_LAYOUTSIZE(L"sbArrowSize", m_nSbArrowSize, FALSE)
@@ -154,6 +155,7 @@ namespace SOUI
             ATTR_INT(L"sbEnable", m_wBarEnable, TRUE)
             ATTR_UINT(L"updateInterval", m_dwUpdateInterval, FALSE)
             ATTR_UINT(L"scrollSpeed",m_nScrollSpeed,FALSE)
+			ATTR_INT(L"space", m_nSpace, TRUE)
 
 			ATTR_LAYOUTSIZE(L"sbLeft", m_nSbLeft, TRUE)
 			ATTR_LAYOUTSIZE(L"sbRight", m_nSbRight, TRUE)

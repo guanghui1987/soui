@@ -17,6 +17,9 @@ GSSkinImgList::GSSkinImgList()
 	m_bmpAttrImg = NULL;
 
 	m_nSkinState = 0;
+
+	m_nWidth = 0;
+	m_nHeight = 0;
 }
 
 GSSkinImgList::~GSSkinImgList()
@@ -260,3 +263,24 @@ HRESULT GSSkinImgList::OnAttrOffset(const SStringW & strValue, BOOL bLoading)
 	return S_OK;
 }
 
+HRESULT GSSkinImgList::OnAttrWidth(const SStringW & strValue, BOOL bLoading)
+{
+	int w = 0;
+	if (1 != swscanf(strValue, L"%i", &w))
+	{
+		return E_FAIL;
+	}
+	m_nWidth = w;
+	return S_OK;
+}
+
+HRESULT GSSkinImgList::OnAttrHeight(const SStringW & strValue, BOOL bLoading)
+{
+	int h = 0;
+	if (1 != swscanf(strValue, L"%i", &h))
+	{
+		return E_FAIL;
+	}
+	m_nHeight = h;
+	return S_OK;
+}

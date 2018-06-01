@@ -33,6 +33,8 @@ protected:
 
 	IBitmap*		GetImage(DWORD dwState);
 	HRESULT			OnAttrOffset(const SStringW & strValue, BOOL bLoading);
+	HRESULT			OnAttrWidth(const SStringW & strValue, BOOL bLoading);
+	HRESULT			OnAttrHeight(const SStringW & strValue, BOOL bLoading);
 
 	SOUI_ATTRS_BEGIN()
 		ATTR_INT(L"size-x", m_nSizeX, FALSE)  //子图固定宽
@@ -41,6 +43,8 @@ protected:
 		ATTR_CUSTOM(L"imglist", OnSetImgList)	// 使用多文件方式
 		ATTR_CUSTOM(L"imgpath", OnSetImgPath)	// 使用文件目录方式
 		ATTR_CUSTOM(L"offset", OnAttrOffset)
+		ATTR_CUSTOM(L"width", OnAttrWidth)
+		ATTR_CUSTOM(L"height", OnAttrHeight)
 	SOUI_ATTRS_END()
 
 private:
@@ -58,6 +62,8 @@ private:
 	bool					m_bImgList;				// 使用imglist方式
 	float fOffsetX, fOffsetY;    /**< 窗口坐标偏移量, x += fOffsetX * width, y += fOffsetY * height  */
 
+	int m_nWidth;
+	int m_nHeight;
 };
 
 

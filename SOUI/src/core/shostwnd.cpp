@@ -517,9 +517,10 @@ void SHostWnd::OnDestroy()
 	m_rgnInvalidate = NULL;
 
     //exit app. (copy from wtl)
-    if(m_hostAttr.m_byWndType == SHostWndAttr::WT_APPMAIN 
-    || (m_hostAttr.m_byWndType == SHostWndAttr::WT_UNDEFINE && (CSimpleWnd::GetStyle() & (WS_CHILD | WS_POPUP)) == 0 && (CSimpleWnd::GetExStyle()&WS_EX_TOOLWINDOW) == 0))
-        ::PostQuitMessage(1);
+	if (m_hostAttr.m_byWndType == SHostWndAttr::WT_APPMAIN
+		|| (m_hostAttr.m_byWndType == SHostWndAttr::WT_UNDEFINE && (CSimpleWnd::GetStyle() & (WS_CHILD | WS_POPUP)) == 0 && (CSimpleWnd::GetExStyle()&WS_EX_TOOLWINDOW) == 0))
+		//::PostQuitMessage(1);
+		GetMsgLoop()->Quit();
 }
 
 void SHostWnd::OnSize(UINT nType, CSize size)

@@ -44,8 +44,9 @@ LRESULT SwndContainerImpl::DoFrameEvent(UINT uMsg,WPARAM wParam,LPARAM lParam)
         lRet=OnFrameSetCursor(CPoint(GET_X_LPARAM(lParam),GET_Y_LPARAM(lParam)));
         if(!lRet)
         {
-            HCURSOR hCursor=GETRESPROVIDER->LoadCursor(IDC_ARROW);
-            SetCursor(hCursor);
+			//HCURSOR hCursor=GETRESPROVIDER->LoadCursor(IDC_ARROW);
+			//SetCursor(hCursor);
+			lRet = SWindow::OnSetCursor(CPoint(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam)));
         }
         break;
     case WM_KEYDOWN:

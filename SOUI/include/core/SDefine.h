@@ -1,5 +1,8 @@
 ﻿#pragma once
 
+#ifdef DISALLOW_COPY_AND_ASSIGN
+#undef DISALLOW_COPY_AND_ASSIGN
+#endif
 // DISALLOW_COPY_AND_ASSIGN禁用拷贝和赋值构造函数.
 // 需要在类的private:访问控制域中使用.
 #define DISALLOW_COPY_AND_ASSIGN(TypeName) \

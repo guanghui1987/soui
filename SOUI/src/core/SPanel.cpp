@@ -18,6 +18,7 @@ SPanel::SPanel()
     ,m_dwUpdateInterval(DEF_UPDATEINTERVAL)
     ,m_nScrollSpeed(10)
 	, m_zDelta(0)
+	, m_nSpace(0)
 {
 	m_nSbWid.setInvalid();
 	m_nSbArrowSize.setInvalid();
@@ -609,8 +610,8 @@ LRESULT SPanel::OnNcCalcSize(BOOL bCalcValidRects, LPARAM lParam)
 {
     SWindow::GetClientRect(&m_rcClient);
 
-    if(HasScrollBar(TRUE)) m_rcClient.right-=GetSbWidth();
-    if(HasScrollBar(FALSE)) m_rcClient.bottom-=GetSbWidth();
+    if(HasScrollBar(TRUE)) m_rcClient.right-=(GetSbWidth()+m_nSpace);
+    if(HasScrollBar(FALSE)) m_rcClient.bottom-=(GetSbWidth()+m_nSpace);
     InvalidateRect(NULL);
     return 0;
 }
