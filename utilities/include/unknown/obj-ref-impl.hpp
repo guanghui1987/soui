@@ -41,6 +41,11 @@ public:
 		return lRet;
 	}
 
+	virtual long RefCount()
+	{
+		return m_cRef;
+	}
+
 	//!释放对象
 	/*!
 	*/

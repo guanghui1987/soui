@@ -60,7 +60,7 @@ namespace SOUI
 		, m_bUpdateLocked(FALSE)
 		, m_bClipClient(FALSE)
 		, m_bFocusable(FALSE)
-		, m_bDrawFocusRect(TRUE)
+		, m_bDrawFocusRect(FALSE)
 		, m_bCacheDraw(FALSE)
 		, m_bCacheDirty(TRUE)
 		, m_bLayeredWindow(FALSE)

@@ -17,6 +17,8 @@ struct IObjRef
 	virtual long AddRef() PURE;
 
 	virtual long Release() PURE;
+
+	virtual long RefCount() PURE;
 	
 	virtual void OnFinalRelease() PURE;
 };

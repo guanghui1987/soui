@@ -11,7 +11,7 @@ namespace SOUI
 		SOUI_CLASS_NAME_EX(SSkinObjBase, L"skinObjBase", Skin)
     public:
         SSkinObjBase():m_byAlpha(0xFF),m_bEnableColorize(TRUE),m_crColorize(0),m_nScale(100){}
-
+		virtual ~SSkinObjBase() {}
         /**
         * GetAlpha
         * @brief    获得skin对象包含透明度

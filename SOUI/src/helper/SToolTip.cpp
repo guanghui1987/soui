@@ -162,7 +162,7 @@ namespace SOUI
 
         CRect rc;
         GetClientRect(&rc);
-        HBRUSH br=CreateSolidBrush(GetSysColor(COLOR_INFOBK));
+        HBRUSH br=CreateSolidBrush(RGB(255,255,255)/*GetSysColor(COLOR_INFOBK)*/);
         HGDIOBJ hOld=SelectObject(dc,br);
         Rectangle(dc,rc.left,rc.top,rc.right,rc.bottom);
         SelectObject(dc,hOld);
