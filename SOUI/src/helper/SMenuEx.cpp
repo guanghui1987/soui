@@ -230,6 +230,7 @@ namespace SOUI
 
 	SMenuExItem::SMenuExItem(SMenuEx *pOwnerMenu, ISkinObj *pItemSkin) :m_pSubMenu(NULL)
 		, m_pOwnerMenu(pOwnerMenu)
+		, m_pIconSkin(NULL)
 		, m_iIcon(-1)
 		, m_bCheck(FALSE)
 		, m_bRadio(FALSE)
@@ -266,6 +267,20 @@ namespace SOUI
 			rc.top += icoY;
 			CRect rcIcon(rc.TopLeft(), pMenuRoot->m_pCheckSkin->GetSkinSize());
 			pMenuRoot->m_pCheckSkin->Draw(pRT, rcIcon, nState);
+		}
+		else if (m_pIconSkin) {
+			if (icoY == Y_IMIDFLAG)
+			{
+				icoY = (rc.Height() - m_pIconSkin->GetSkinSize().cy - 1) / 2;
+			}
+			rc.top += icoY;
+			CRect rcIcon(rc.TopLeft(), m_pIconSkin->GetSkinSize());
+			DWORD nState = this->m_dwState;
+			if (nState >= m_pIconSkin->GetStates() && m_pIconSkin->GetStates() != 0) {
+				nState = m_pIconSkin->GetStates() - 1;
+			}
+
+			m_pIconSkin->Draw(pRT, rcIcon, nState);
 		}
 		else if (pMenuRoot->m_pIconSkin)
 		{

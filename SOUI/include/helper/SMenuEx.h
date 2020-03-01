@@ -45,6 +45,7 @@ namespace SOUI
 
     protected:
         SOUI_ATTRS_BEGIN()
+			ATTR_SKIN(L"iconSkin", m_pIconSkin, FALSE)
             ATTR_INT(L"icon",m_iIcon,TRUE)
             ATTR_INT(L"check",m_bCheck,TRUE)
             ATTR_INT(L"radio",m_bRadio,TRUE)
@@ -53,6 +54,7 @@ namespace SOUI
 
         SMenuEx * m_pSubMenu;
         SMenuEx * m_pOwnerMenu;
+		ISkinObj * m_pIconSkin;
         int       m_iIcon;
         BOOL      m_bCheck;
         BOOL      m_bRadio;    
